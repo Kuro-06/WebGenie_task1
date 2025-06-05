@@ -1,0 +1,229 @@
+:root {
+  --bg: #121215;
+  --card: #282828;
+  --text: #f3f1f1;
+  --accent-start: #5c53ff;
+  --accent-end: #1101be;
+  --glow: 0 0 15px rgba(29, 94, 169, 0.3);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Segoe UI', sans-serif;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  background: linear-gradient(to right, var(--accent-start), var(--accent-end));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+input[type="text"] {
+  width: 100%;
+  max-width: 400px;
+  padding: 0.8rem 1rem;
+  border-radius: 12px;
+  border: none;
+  background: #222;
+  color: white;
+  font-size: 1rem;
+  outline: none;
+  box-shadow: 0 0 8px rgba(255,255,255,0.05);
+  transition: box-shadow 0.3s ease;
+}
+
+input:focus {
+  box-shadow: var(--glow);
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.movie-card {
+  background: var(--card);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--glow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.movie-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(108, 99, 255, 0.4);
+}
+
+.movie-poster {
+  height: 300px;
+  background: #222;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.movie-poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.movie-card:hover .movie-poster img {
+  transform: scale(1.05);
+}
+
+.movie-info {
+  padding: 1rem;
+}
+
+.movie-title {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.rating {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  background: rgba(255,255,255,0.1);
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(8px);
+  z-index: 999;
+}
+
+.modal-content {
+  background: rgba(26, 26, 26, 0.95);
+  border-radius: 16px;
+  padding: 2rem;
+  margin: 3rem auto;
+  max-width: 900px;
+  box-shadow: var(--glow);
+  position: relative;
+}
+
+.modal-body {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.modal-poster {
+  width: 100%;
+  height: 450px;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.modal-poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modal-details h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.modal-details p {
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+.read-more {
+  margin-top: 1rem;
+  background: linear-gradient(to right, var(--accent-start), var(--accent-end));
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.read-more:hover {
+  transform: translateY(-2px);
+}
+
+.close {
+  position: absolute;
+  top: 1rem; right: 1.5rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #fff;
+}
+
+/* Payment & Success Pages */
+.payment-container, .success-container {
+  max-width: 500px;
+  margin: 4rem auto;
+  padding: 2rem;
+  background: rgba(26, 26, 26, 0.8);
+  border-radius: 16px;
+  box-shadow: var(--glow);
+  text-align: center;
+}
+
+.payment-container h2, .success-container h2 {
+  margin-bottom: 1.5rem;
+}
+
+input[type="text"], input[type="tel"], select {
+  width: 100%;
+  padding: 0.8rem;
+  margin: 0.5rem 0 1.5rem;
+  border-radius: 8px;
+  border: none;
+  background: #222;
+  color: white;
+  font-size: 1rem;
+}
+
+.pay-button {
+  background: linear-gradient(to right, var(--accent-start), var(--accent-end));
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.pay-button:hover {
+  transform: translateY(-2px);
+}
+
+.hidden {
+  display: none;
+}
